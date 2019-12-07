@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Animall</string>
+    <string name="edit_text_hint_user_name"><font size="12">UserName/Phone/Email</font></string>
+    <string name="password">Password</string>
+    <string name="forgetpassword">Forget Password?</string>
+    <string name="user_login">Login</string>
+    <string name="seller_login">Login as Seller</string>
+    <string name="register_new_user">Register New User</string>
+    <string name="register">Register</string>
+    <string name="name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="checkNetworkConnection">please check internet connection</string>
+    <string name="categories">Categories</string>
+    <string name="myorders">My Orders</string>
+    <string name="myprofile">My Profile</string>
+    <string name="messages">Messages</string>
+    <string name="notifications">Notifications</string>
+    <string name="favorits">Favorites</string>
+    <string name="complansandobjectives">Complans and Objectives</string>
+    <string name="logout">Logout</string>
+</resources>

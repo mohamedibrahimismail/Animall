@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Animall</string>
+    <string name="edit_text_hint_user_name"><font size="12">اسم المستخدم/رقم الجوال/البريد الاكتروني</font></string>
+    <string name="password">كلمة المرور</string>
+    <string name="forgetpassword">نسيت كلمة المرور</string>
+    <string name="user_login">تسجيل الدخول</string>
+    <string name="seller_login">التسجيل كبائع متعدد</string>
+    <string name="register_new_user">تسجيل مستخدم جديد</string>
+    <string name="register">تسجيل</string>
+    <string name="name">الاسم بالكامل</string>
+    <string name="email">البريد الالكنروني</string>
+    <string name="phone">رقم الموبايل</string>
+    <string name="confirm_password">تاكيد كلمة المرور</string>
+    <string name="categories">الفئات</string>
+    <string name="myorders">طلباتي</string>
+    <string name="myprofile">الملف الشخصي</string>
+    <string name="messages">الرسائل</string>
+    <string name="notifications">الاشعارات</string>
+    <string name="favorits">قائمة الرغبات</string>
+    <string name="complansandobjectives">الشكاوي و الاعتراضات</string>
+    <string name="logout">تسجيل الخروج</string>
+
+</resources>
