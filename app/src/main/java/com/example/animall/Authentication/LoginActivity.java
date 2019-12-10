@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.animall.Data.Remote.Models.LoginModel;
+import com.example.animall.Data.Remote.Models.User.LoginModel;
 import com.example.animall.Data.Local.MySharedPreference;
 import com.example.animall.Home.Home;
 import com.example.animall.R;
@@ -124,6 +124,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void go_to_seller_register(View view) {
-
+        startActivity(new Intent(LoginActivity.this,Seller_Registration.class));
     }
 }

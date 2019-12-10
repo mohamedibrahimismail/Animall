@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.animall.Data.Remote.Models.LoginModel;
+import com.example.animall.Data.Remote.Models.User.LoginModel;
 import com.example.animall.Data.Local.MySharedPreference;
 import com.example.animall.Home.Home;
 import com.example.animall.R;

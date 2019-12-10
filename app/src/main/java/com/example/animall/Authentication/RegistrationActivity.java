@@ -9,7 +9,7 @@ import android.widget.Toast;
 import com.example.animall.*;
 import com.example.animall.Data.Local.MySharedPreference;
 import com.example.animall.Data.Remote.Api;
-import com.example.animall.Data.Remote.Models.LoginModel;
+import com.example.animall.Data.Remote.Models.User.LoginModel;
 import com.example.animall.Home.Home;
 import com.google.android.material.textfield.TextInputEditText;
 

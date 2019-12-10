@@ -1,7 +1,8 @@
 package com.example.animall.Data.Remote;
 
 import com.example.animall.Data.Remote.Models.Home.HomeModel;
-import com.example.animall.Data.Remote.Models.LoginModel;
+import com.example.animall.Data.Remote.Models.Seller.SellerModel;
+import com.example.animall.Data.Remote.Models.User.LoginModel;
 import com.example.animall.Data.Remote.Models.SubCategoriesModel.SubCategoriesModel;
 
 import retrofit2.Call;
@@ -21,8 +22,13 @@ public interface Service {
     Call<LoginModel> Register(@Field("name") String name, @Field("email") String email,
                               @Field("password") String password, @Field("password_confirmation") String password_confirmation
             , @Field("phone") String phone);
-
-
+    @FormUrlEncoded
+    @POST("api/register_seller")
+    Call<SellerModel> Register_Seller(@Field("name")String name,@Field("email")String email,
+                                      @Field("password")String password,
+                                      @Field("password_confirmation")String password_confirmation
+    ,@Field("market_name")String market_name,@Field("number_id")String number_id,@Field("phone")String phone
+    ,@Field("address")String address);
     @GET("/api/categories")
     Call<HomeModel> getHomeModel(@Query("access_token") String access_token);
 

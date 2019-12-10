@@ -1,4 +1,4 @@
-package com.example.animall.Data.Remote.Models;
+package com.example.animall.Data.Remote.Models.Seller;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -16,13 +16,16 @@ public class Result {
     private String email;
     @SerializedName("address")
     @Expose
-    private Object address;
-    @SerializedName("aria")
+    private String address;
+    @SerializedName("number_id")
     @Expose
-    private Object aria;
+    private String numberId;
     @SerializedName("phone")
     @Expose
-    private Object phone;
+    private String phone;
+    @SerializedName("market_name")
+    @Expose
+    private String marketName;
     @SerializedName("access_token")
     @Expose
     private String accessToken;
@@ -51,28 +54,36 @@ public class Result {
         this.email = email;
     }
 
-    public Object getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(Object address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
-    public Object getAria() {
-        return aria;
+    public String getNumberId() {
+        return numberId;
     }
 
-    public void setAria(Object aria) {
-        this.aria = aria;
+    public void setNumberId(String numberId) {
+        this.numberId = numberId;
     }
 
-    public Object getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Object phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getMarketName() {
+        return marketName;
+    }
+
+    public void setMarketName(String marketName) {
+        this.marketName = marketName;
     }
 
     public String getAccessToken() {
@@ -82,5 +93,4 @@ public class Result {
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
     }
-
 }

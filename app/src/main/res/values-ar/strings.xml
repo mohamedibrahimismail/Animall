@@ -7,11 +7,13 @@
     <string name="user_login">تسجيل الدخول</string>
     <string name="seller_login">التسجيل كبائع متعدد</string>
     <string name="register_new_user">تسجيل مستخدم جديد</string>
+    <string name="register_new_seller">تسجيل بائع جديد</string>
     <string name="register">تسجيل</string>
     <string name="name">الاسم بالكامل</string>
     <string name="email">البريد الالكنروني</string>
     <string name="phone">رقم الموبايل</string>
     <string name="confirm_password">تاكيد كلمة المرور</string>
+    <string name="checkNetworkConnection">من فضلك تاكد من الاتصال بالانترنت</string>
     <string name="categories">الفئات</string>
     <string name="myorders">طلباتي</string>
     <string name="myprofile">الملف الشخصي</string>
@@ -20,5 +22,9 @@
     <string name="favorits">قائمة الرغبات</string>
     <string name="complansandobjectives">الشكاوي و الاعتراضات</string>
     <string name="logout">تسجيل الخروج</string>
+    <string name="shop_name">اسم المتجر بالكامل</string>
+    <string name="commercial_registration_No">رقم السجل التجاري</string>
+    <string name="seller_name">الشخص المسئول</string>
+    <string name="address">العنوان بالتفاصيل</string>
 
 </resources>

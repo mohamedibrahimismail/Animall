@@ -1,9 +1,9 @@
-package com.example.animall.Data.Remote.Models;
+package com.example.animall.Data.Remote.Models.Seller;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class LoginModel {
+public class SellerModel {
 
     @SerializedName("result")
     @Expose
@@ -27,4 +27,5 @@ public class LoginModel {
     public void setStatue(String statue) {
         this.statue = statue;
     }
+
 }

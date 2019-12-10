@@ -3,7 +3,7 @@ package com.example.animall.Data.Local;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.animall.Data.Remote.Models.LoginModel;
+import com.example.animall.Data.Remote.Models.User.LoginModel;
 import com.google.gson.Gson;
 
 /**
