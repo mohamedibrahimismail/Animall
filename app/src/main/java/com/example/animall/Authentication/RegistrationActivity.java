@@ -118,6 +118,8 @@ public class RegistrationActivity extends AppCompatActivity {
                         Toast.makeText(RegistrationActivity.this,"تم تسجيل دخولك بنجاح",Toast.LENGTH_LONG).show();
                         startActivity(new Intent(RegistrationActivity.this, Home.class));
                         finish();
+                    }else if(response.body().getStatue().equals("error")){
+                        Toast.makeText(RegistrationActivity.this,"لقد تم تسجيلك من قبل",Toast.LENGTH_LONG).show();
                     }
                 }
             }

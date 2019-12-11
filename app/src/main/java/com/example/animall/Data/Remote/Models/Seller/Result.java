@@ -3,6 +3,8 @@ package com.example.animall.Data.Remote.Models.Seller;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class Result {
 
     @SerializedName("user_id")
@@ -29,6 +31,19 @@ public class Result {
     @SerializedName("access_token")
     @Expose
     private String accessToken;
+    @SerializedName("errors")
+    @Expose
+    private List<String> errors = null;
+
+    public List<String> getErrors() {
+        return errors;
+    }
+
+    public void setErrors(List<String> errors) {
+        this.errors = errors;
+    }
+
+
 
     public Integer getUserId() {
         return userId;

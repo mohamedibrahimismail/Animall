@@ -134,6 +134,8 @@ public class Seller_Registration extends AppCompatActivity {
                 if(response.isSuccessful()){
                     if(response.body().getStatue().equals("done")){
                         Toast.makeText(Seller_Registration.this,"تم تسجيلك بنجاح",Toast.LENGTH_LONG).show();
+                    }else if(response.body().getStatue().equals("error")){
+                        Toast.makeText(Seller_Registration.this,"لقد تم تسجيلك من قبل",Toast.LENGTH_LONG).show();
                     }
                 }
             }
