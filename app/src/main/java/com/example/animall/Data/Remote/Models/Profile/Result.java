@@ -1,25 +1,22 @@
-package com.example.animall.Data.Remote.Models.User;
+package com.example.animall.Data.Remote.Models.Profile;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
 public class Result {
-
-    @SerializedName("userdata")
+    @SerializedName("Profile")
     @Expose
-    private UserData userdata;
+    private Profile profile;
     @SerializedName("access_token")
     @Expose
     private String accessToken;
 
-        public UserData getUserdata() {
-        return userdata;
+    public Profile getProfile() {
+        return profile;
     }
 
-    public void setUserdata(UserData userdata) {
-        this.userdata = userdata;
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 
     public String getAccessToken() {

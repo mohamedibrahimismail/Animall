@@ -18,12 +18,16 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.animall.Authentication.LoginActivity;
 import com.example.animall.Categories.Categories;
+import com.example.animall.Data.Local.MySharedPreference;
 import com.example.animall.Data.Remote.GetDataService;
 import com.example.animall.Data.Remote.Models.Home.Category_;
 import com.example.animall.Data.Remote.Models.Home.HomeModel;
 import com.example.animall.Data.Remote.Models.Home.Slider;
+import com.example.animall.Data.Remote.Models.User.LoginModel;
 import com.example.animall.Data.Remote.RetrofitClientInstance;
+import com.example.animall.Profile.Profile;
 import com.example.animall.R;
 import com.example.animall.SubCategories.SubCategories;
 import com.example.animall.Utilities.Utilities;
@@ -42,7 +46,8 @@ public class Home extends AppCompatActivity implements HomeRecyclerViewAdapter.H
 
     String accessToken = "5d8e1373028a65d8e1373028a75d8e1373028a85d8e1373028a95d8e1373028aa";
     private static final String TAG = "Home";
-
+    MySharedPreference mprefs;
+    LoginModel loginModel;
     //sideMenu
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
@@ -70,6 +75,8 @@ public class Home extends AppCompatActivity implements HomeRecyclerViewAdapter.H
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
+        mprefs = MySharedPreference.getInstance();
+        loginModel = mprefs.Get_UserData(this);
         handleSideMenu();
         loadDataOnline();
 
@@ -79,10 +86,25 @@ public class Home extends AppCompatActivity implements HomeRecyclerViewAdapter.H
     public void handleSideMenu() {
         View headerLayout = navigationView.getHeaderView(0);
         LinearLayout categories_lyt = (LinearLayout)headerLayout.findViewById(R.id.categories_lyt);
+        LinearLayout linear_profile = headerLayout.findViewById(R.id.myprofile_lyt);
         categories_lyt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Home.this, Categories.class));
+            }
+        });
+        linear_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Home.this, Profile.class));
+            }
+        });
+        LinearLayout logout = headerLayout.findViewById(R.id.logout_lyt);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mprefs.ClearData(Home.this);
+                startActivity(new Intent(Home.this, LoginActivity.class));
             }
         });
     }
