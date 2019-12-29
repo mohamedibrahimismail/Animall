@@ -195,7 +195,6 @@ public class Profile extends AppCompatActivity {
             Api.getService().update_profile(rb_access_token,rb_user_id,rb_name,rb_email,rb_address,rb_area,rb_phone,photo,rb_website).enqueue(new Callback<LoginModel>() {
                 @Override
                 public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-
                     if(Utilities.isNetworkAvailable(Profile.this)){
                         if(response.isSuccessful()){
                             name.setText(response.body().getResult().getUserdata().getName());
