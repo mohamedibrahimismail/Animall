@@ -3,6 +3,7 @@ package com.example.animall.Home;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,7 +19,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.animall.Authentication.LoginActivity;
 import com.example.animall.Categories.Categories;
 import com.example.animall.Data.Local.MySharedPreference;
 import com.example.animall.Data.Remote.GetDataService;
@@ -27,7 +27,6 @@ import com.example.animall.Data.Remote.Models.Home.HomeModel;
 import com.example.animall.Data.Remote.Models.Home.Slider;
 import com.example.animall.Data.Remote.Models.User.LoginModel;
 import com.example.animall.Data.Remote.RetrofitClientInstance;
-import com.example.animall.Profile.Profile;
 import com.example.animall.R;
 import com.example.animall.SubCategories.SubCategories;
 import com.example.animall.Utilities.Utilities;
@@ -44,10 +43,9 @@ import retrofit2.Response;
 
 public class Home extends AppCompatActivity implements HomeRecyclerViewAdapter.HandelClicked{
 
-    String accessToken = "5d8e1373028a65d8e1373028a75d8e1373028a85d8e1373028a95d8e1373028aa";
+    //String accessToken = "5d8e1373028a65d8e1373028a75d8e1373028a85d8e1373028a95d8e1373028aa";
     private static final String TAG = "Home";
-    MySharedPreference mprefs;
-    LoginModel loginModel;
+
     //sideMenu
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
@@ -70,13 +68,16 @@ public class Home extends AppCompatActivity implements HomeRecyclerViewAdapter.H
     @BindView(R.id.home_lyt)
     NestedScrollView home_lyt;
 
+    LoginModel loginModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
-        mprefs = MySharedPreference.getInstance();
-        loginModel = mprefs.Get_UserData(this);
+        loginModel = MySharedPreference.getInstance().Get_UserData(this);
+        Log.e("token",loginModel.getResult().getAccessToken() );
+        Log.e("id",loginModel.getResult().getUserId() +"");
         handleSideMenu();
         loadDataOnline();
 
@@ -86,25 +87,10 @@ public class Home extends AppCompatActivity implements HomeRecyclerViewAdapter.H
     public void handleSideMenu() {
         View headerLayout = navigationView.getHeaderView(0);
         LinearLayout categories_lyt = (LinearLayout)headerLayout.findViewById(R.id.categories_lyt);
-        LinearLayout linear_profile = headerLayout.findViewById(R.id.myprofile_lyt);
         categories_lyt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Home.this, Categories.class));
-            }
-        });
-        linear_profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Home.this, Profile.class));
-            }
-        });
-        LinearLayout logout = headerLayout.findViewById(R.id.logout_lyt);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mprefs.ClearData(Home.this);
-                startActivity(new Intent(Home.this, LoginActivity.class));
             }
         });
     }
@@ -169,7 +155,7 @@ public class Home extends AppCompatActivity implements HomeRecyclerViewAdapter.H
 
         if (Utilities.isNetworkAvailable(this)) {
             GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
-            Call<HomeModel> call = service.getHomeModel(accessToken);
+            Call<HomeModel> call = service.getHomeModel(loginModel.getResult().getAccessToken());
             call.enqueue(new Callback<HomeModel>() {
                 @Override
                 public void onResponse(Call<HomeModel> call, Response<HomeModel> response) {
@@ -197,7 +183,7 @@ public class Home extends AppCompatActivity implements HomeRecyclerViewAdapter.H
 
     @OnClick(R.id.menu)
     public void openSlideMenu() {
-        drawerLayout.openDrawer(GravityCompat.END);
+        drawerLayout.openDrawer(Gravity.RIGHT);
     }
 
 
