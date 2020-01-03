@@ -11,9 +11,11 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.animall.Data.Local.MySharedPreference;
 import com.example.animall.Data.Remote.GetDataService;
 import com.example.animall.Data.Remote.Models.Home.Category_;
 import com.example.animall.Data.Remote.Models.Home.HomeModel;
+import com.example.animall.Data.Remote.Models.User.LoginModel;
 import com.example.animall.Data.Remote.RetrofitClientInstance;
 import com.example.animall.Home.HomeRecyclerViewAdapter;
 import com.example.animall.R;
@@ -31,7 +33,7 @@ import retrofit2.Response;
 
 public class Categories extends AppCompatActivity implements HomeRecyclerViewAdapter.HandelClicked{
 
-    String accessToken = "5d8e1373028a65d8e1373028a75d8e1373028a85d8e1373028a95d8e1373028aa";
+//    String accessToken = "5d8e1373028a65d8e1373028a75d8e1373028a85d8e1373028a95d8e1373028aa";
     private static final String TAG = "Category";
 
     @BindView(R.id.progressbar)
@@ -39,11 +41,13 @@ public class Categories extends AppCompatActivity implements HomeRecyclerViewAda
     @BindView(R.id.receclerView)
     RecyclerView recyclerView;
 
+    LoginModel loginModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
         ButterKnife.bind(this);
+        loginModel = MySharedPreference.getInstance().Get_UserData(this);
         loadDataOnline();
 
     }
@@ -52,7 +56,7 @@ public class Categories extends AppCompatActivity implements HomeRecyclerViewAda
 
         if (Utilities.isNetworkAvailable(this)) {
             GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
-            Call<HomeModel> call = service.getHomeModel(accessToken);
+            Call<HomeModel> call = service.getHomeModel(loginModel.getResult().getAccessToken());
             call.enqueue(new Callback<HomeModel>() {
                 @Override
                 public void onResponse(Call<HomeModel> call, Response<HomeModel> response) {
