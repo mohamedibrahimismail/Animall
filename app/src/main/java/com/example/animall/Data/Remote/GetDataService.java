@@ -15,5 +15,10 @@ public interface GetDataService {
     @GET("/api/sub_categories")
     Call<SubCategoriesModel> getSubCategories(@Query("access_token") String access_token,
                                               @Query("category_id ") String category_id);
+    
+     @GET("/api/products")
+    Call<ProductModel> getProducts(@Query("access_token") String access_token,
+                                   @Query("sub_category_id") String sub_category_id);
+
 
 }
