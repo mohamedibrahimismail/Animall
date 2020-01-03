@@ -1,5 +1,6 @@
 package com.example.animall.SubCategories;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,11 +12,14 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.animall.Data.Local.MySharedPreference;
 import com.example.animall.Data.Remote.GetDataService;
 import com.example.animall.Data.Remote.Models.Home.Category_;
 import com.example.animall.Data.Remote.Models.SubCategoriesModel.Category;
 import com.example.animall.Data.Remote.Models.SubCategoriesModel.SubCategoriesModel;
+import com.example.animall.Data.Remote.Models.User.LoginModel;
 import com.example.animall.Data.Remote.RetrofitClientInstance;
+import com.example.animall.Product.Product;
 import com.example.animall.R;
 import com.example.animall.Utilities.Utilities;
 
@@ -31,7 +35,7 @@ import retrofit2.Response;
 
 public class SubCategories extends AppCompatActivity implements SubCategoryRecyclerViewAdapter.HandelClicked{
 
-    String accessToken = "5d8e1373028a65d8e1373028a75d8e1373028a85d8e1373028a95d8e1373028aa";
+  //  String accessToken = "5d8e1373028a65d8e1373028a75d8e1373028a85d8e1373028a95d8e1373028aa";
     private static final String TAG = "SubCategory";
 
     @BindView(R.id.progressbar)
@@ -42,12 +46,14 @@ public class SubCategories extends AppCompatActivity implements SubCategoryRecyc
     TextView title;
 
     Category_ category;
+    LoginModel loginModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_categories);
         ButterKnife.bind(this);
+        loginModel = MySharedPreference.getInstance().Get_UserData(this);
         if(getIntent().hasExtra("category")){
            category = (Category_)getIntent().getParcelableExtra("category");
            if(Utilities.getLang(this).equals("ar")){
@@ -69,7 +75,7 @@ public class SubCategories extends AppCompatActivity implements SubCategoryRecyc
 
         if (Utilities.isNetworkAvailable(this)) {
             GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
-            Call<SubCategoriesModel> call = service.getSubCategories(accessToken,id);
+            Call<SubCategoriesModel> call = service.getSubCategories(loginModel.getResult().getAccessToken(),id);
             call.enqueue(new Callback<SubCategoriesModel>() {
                 @Override
                 public void onResponse(Call<SubCategoriesModel> call, Response<SubCategoriesModel> response) {
@@ -107,6 +113,8 @@ public class SubCategories extends AppCompatActivity implements SubCategoryRecyc
 
     @Override
     public void HandleClicked(Category category) {
-
+        Intent intent = new Intent(this, Product.class);
+        intent.putExtra("sub_category",category);
+        startActivity(intent);
     }
 }
