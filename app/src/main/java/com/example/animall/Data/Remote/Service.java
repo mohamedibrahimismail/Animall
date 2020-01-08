@@ -1,8 +1,9 @@
 package com.example.animall.Data.Remote;
 
 import com.example.animall.Data.Remote.Models.Home.HomeModel;
-import com.example.animall.Data.Remote.Models.Profile.ProfileModel;
-import com.example.animall.Data.Remote.Models.Seller.SellerModel;
+import com.example.animall.Data.Remote.Models.HotelDeal.HotelDealModel;
+import com.example.animall.Data.Remote.Models.HotelDeal.HotelDeals;
+import com.example.animall.Data.Remote.Models.OrderHost.OrderHost;
 import com.example.animall.Data.Remote.Models.User.LoginModel;
 import com.example.animall.Data.Remote.Models.SubCategoriesModel.SubCategoriesModel;
 
@@ -29,7 +30,7 @@ public interface Service {
             , @Field("phone") String phone);
     @FormUrlEncoded
     @POST("api/register_seller")
-    Call<SellerModel> Register_Seller(@Field("name")String name,@Field("email")String email,
+    Call<LoginModel> Register_Seller(@Field("name")String name,@Field("email")String email,
                                       @Field("password")String password,
                                       @Field("password_confirmation")String password_confirmation
     ,@Field("market_name")String market_name,@Field("number_id")String number_id,@Field("phone")String phone
@@ -60,5 +61,12 @@ public interface Service {
                                    @Field("aria") String aria,
                                    @Field("phone") String phone,
                                    @Field("website") String website);
-
+    @GET("api/hotel_deals")
+    Call<HotelDeals>get_hotel_deals(@Query("access_token")String access_token);
+    @GET("api/hotel_deal")
+    Call<HotelDealModel>get_hotel_deal(@Query("access_token")String access_token,@Query("hotel_deal")String hotel_deal);
+    @GET("api/order_host")
+    Call<OrderHost>order_host(@Query("access_token")String access_token,@Query("vaccination")String vaccination,
+                              @Query("age")String age,@Query("phone")String phone,@Query("email")String email,
+                              @Query("user_id")String user_id,@Query("order_hotel_deal_id")String order_hotel_deal_id);
 }

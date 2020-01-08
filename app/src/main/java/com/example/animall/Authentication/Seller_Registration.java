@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.animall.Data.Remote.Api;
 import com.example.animall.Data.Remote.Models.Seller.SellerModel;
+import com.example.animall.Data.Remote.Models.User.LoginModel;
 import com.example.animall.R;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -128,9 +129,9 @@ public class Seller_Registration extends AppCompatActivity {
     }
 
     private void Register_seller(String seller_name, String seller_email, String seller_phone, String seller_address, String shop_name, String com_reg_no, String password, String confirm_password) {
-        Api.getService().Register_Seller(seller_name,seller_email,password,confirm_password,shop_name,com_reg_no,seller_phone,seller_address).enqueue(new Callback<SellerModel>() {
+        Api.getService().Register_Seller(seller_name,seller_email,password,confirm_password,shop_name,com_reg_no,seller_phone,seller_address).enqueue(new Callback<LoginModel>() {
             @Override
-            public void onResponse(Call<SellerModel> call, Response<SellerModel> response) {
+            public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
                 if(response.isSuccessful()){
                     if(response.body().getStatue().equals("done")){
                         Toast.makeText(Seller_Registration.this,"تم تسجيلك بنجاح",Toast.LENGTH_LONG).show();
@@ -141,7 +142,7 @@ public class Seller_Registration extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<SellerModel> call, Throwable t) {
+            public void onFailure(Call<LoginModel> call, Throwable t) {
 
             }
         });

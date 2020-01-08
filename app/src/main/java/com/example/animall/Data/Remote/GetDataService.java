@@ -1,6 +1,7 @@
 package com.example.animall.Data.Remote;
 
 import com.example.animall.Data.Remote.Models.Home.HomeModel;
+import com.example.animall.Data.Remote.Models.Product.ProductModel;
 import com.example.animall.Data.Remote.Models.SubCategoriesModel.SubCategoriesModel;
 
 import retrofit2.Call;

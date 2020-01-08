@@ -77,7 +77,7 @@ public class Home extends AppCompatActivity implements HomeRecyclerViewAdapter.H
         ButterKnife.bind(this);
         loginModel = MySharedPreference.getInstance().Get_UserData(this);
         Log.e("token",loginModel.getResult().getAccessToken() );
-        Log.e("id",loginModel.getResult().getUserId() +"");
+        Log.e("id",loginModel.getResult().getUserdata().getUserId() +"");
         handleSideMenu();
         loadDataOnline();
 

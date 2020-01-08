@@ -25,4 +25,12 @@
     <string name="commercial_registration_No">Commercial Registration No</string>
     <string name="seller_name">Seller Name</string>
     <string name="address">Address</string>
+    <string name="order_hotel">Order Hotel</string>
+    <string name="animal_type">Animal Type:</string>
+    <string name="animal_age">Animal age:</string>
+    <string name="time_host">Hour host:</string>
+    <string name="service">Available services</string>
+    <string name="day_host">Day Host:</string>
+    <string name="vaccination">Vaccination</string>
+
 </resources>

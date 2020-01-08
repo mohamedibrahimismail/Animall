@@ -26,5 +26,12 @@
     <string name="commercial_registration_No">رقم السجل التجاري</string>
     <string name="seller_name">الشخص المسئول</string>
     <string name="address">العنوان بالتفاصيل</string>
+    <string name="order_hotel">طلب الفندقة</string>
+    <string name="animal_type">نوع الحيوان:</string>
+    <string name="animal_age">عمر الحيوان:</string>
+    <string name="time_host">ساعات الفندقة:</string>
+    <string name="service">الخدمات المتاحة:</string>
+    <string name="day_host">ايام الفندقة:</string>
+    <string name="vaccination">التطعيم</string>
 
 </resources>
