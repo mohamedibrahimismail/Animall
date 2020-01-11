@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
+<androidx.cardview.widget.CardView android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginRight="10dp"
     android:layout_marginLeft="10dp"
     android:layout_marginTop="2dp"
-    android:layout_marginBottom="1dp"
-    >
+    android:layout_marginBottom="1dp">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -119,6 +118,7 @@
                     android:textStyle="bold" />
 
                 <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                    app:mrb_progressTint="#fdc003"
                     android:id="@+id/ratingBar"
                     style="@style/Widget.MaterialRatingBar.RatingBar.Small"
                     android:layout_width="wrap_content"

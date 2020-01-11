@@ -27,7 +27,10 @@ import com.example.animall.Data.Remote.Models.Home.HomeModel;
 import com.example.animall.Data.Remote.Models.Home.Slider;
 import com.example.animall.Data.Remote.Models.User.LoginModel;
 import com.example.animall.Data.Remote.RetrofitClientInstance;
+import com.example.animall.Favorites.Favorites;
 import com.example.animall.HotelDeals.Hotel_Deals;
+import com.example.animall.MyCard.MyCard;
+import com.example.animall.Profile.Profile;
 import com.example.animall.R;
 import com.example.animall.SubCategories.SubCategories;
 import com.example.animall.Utilities.Utilities;
@@ -46,6 +49,8 @@ public class Home extends AppCompatActivity implements HomeRecyclerViewAdapter.H
 
     //String accessToken = "5d8e1373028a65d8e1373028a75d8e1373028a85d8e1373028a95d8e1373028aa";
     private static final String TAG = "Home";
+
+    //
 
     //sideMenu
     @BindView(R.id.drawer_layout)
@@ -94,7 +99,6 @@ public class Home extends AppCompatActivity implements HomeRecyclerViewAdapter.H
                 startActivity(new Intent(Home.this, Categories.class));
             }
         });
-
         LinearLayout hotelDeals_lyt = (LinearLayout)headerLayout.findViewById(R.id.hoteldeals_lyt);
         hotelDeals_lyt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +106,38 @@ public class Home extends AppCompatActivity implements HomeRecyclerViewAdapter.H
                 startActivity(new Intent(Home.this, Hotel_Deals.class));
             }
         });
+        LinearLayout profile_lyt = (LinearLayout)headerLayout.findViewById(R.id.myprofile_lyt);
+        profile_lyt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Home.this, Profile.class));
+            }
+        });
+        LinearLayout logout_lyt = (LinearLayout)headerLayout.findViewById(R.id.logout_lyt);
+        logout_lyt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MySharedPreference.getInstance().ClearData(getApplicationContext());
+                finish();
+            }
+        });
+
+        LinearLayout favorits_lyt = (LinearLayout)headerLayout.findViewById(R.id.favorits_lyt);
+        favorits_lyt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Home.this, Favorites.class));
+            }
+        });
+
+        LinearLayout myorders_lyt = (LinearLayout)headerLayout.findViewById(R.id.myorders_lyt);
+        myorders_lyt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Home.this, MyCard.class));
+            }
+        });
+
     }
 
     public void handleSlider(final List<Slider> list) {

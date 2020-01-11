@@ -1,14 +1,20 @@
 
 package com.example.animall.Data.Remote.Models.Product;
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "product_table")
 public class Product {
 
+    @PrimaryKey
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private long id;
     @SerializedName("like")
     @Expose
     private Boolean like;
@@ -43,11 +49,32 @@ public class Product {
     @Expose
     private String photo;
 
-    public Integer getId() {
+    private Double quantity = 1.0D;
+
+    @Ignore
+    private boolean addedToCard = false;
+
+    public Double getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Double quantity) {
+        this.quantity = quantity;
+    }
+
+    public boolean isAddedToCard() {
+        return addedToCard;
+    }
+
+    public void setAddedToCard(boolean addedToCard) {
+        this.addedToCard = addedToCard;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 

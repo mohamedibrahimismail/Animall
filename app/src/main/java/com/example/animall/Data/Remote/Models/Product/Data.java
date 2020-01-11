@@ -9,16 +9,16 @@ public class Data {
 
     @SerializedName("slider")
     @Expose
-    private List<Slider> slider = null;
+    private List<Product> slider = null;
     @SerializedName("product")
     @Expose
     private List<Product> product = null;
 
-    public List<Slider> getSlider() {
+    public List<Product> getSlider() {
         return slider;
     }
 
-    public void setSlider(List<Slider> slider) {
+    public void setSlider(List<Product> slider) {
         this.slider = slider;
     }
 

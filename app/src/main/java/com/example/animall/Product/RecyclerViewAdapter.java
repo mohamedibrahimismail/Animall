@@ -6,12 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-
+import com.example.animall.Data.Remote.Models.Product.Product;
 import com.example.animall.R;
 import com.example.animall.Utilities.Utilities;
 import com.squareup.picasso.Picasso;
@@ -20,16 +19,16 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import de.hdodenhof.circleimageview.CircleImageView;
+import butterknife.OnClick;
 import me.zhanghai.android.materialratingbar.MaterialRatingBar;
-import com.example.animall.Data.Remote.Models.Product.Product;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
     Context context;
     List<Product> list;
-    HandelClicked handelClicked;
     String lang ;
+
+    Communicator communicator;
 
     public interface HandelClicked{
         public void HandleClicked(Product product);
@@ -55,7 +54,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView address_txt;
 
 
-
         public MyViewHolder(View view) {
             super(view);
             ButterKnife.bind(this,view);
@@ -63,7 +61,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    handelClicked.HandleClicked(list.get(getPosition()));
+                    communicator.HandleClicked(getPosition(),list.get(getPosition()));
                 }
             });
 
@@ -77,12 +75,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             if(lang.equals("ar")){
                 title.setText(product.getProductNameAr());
                 old_price.setText(product.getBeforePrice());
-                new_price.setText(product.getPrice());
+                new_price.setText(product.getPrice()+"RS");
                 address_txt.setText(product.getAddressAr());
             }else {
                 title.setText(product.getProductNameEn());
                 old_price.setText(product.getBeforePrice());
-                new_price.setText(product.getPrice());
+                new_price.setText(product.getPrice()+"RS");
                 address_txt.setText(product.getAddressEn());
             }
             ratingBar.setRating(product.getRate());
@@ -92,17 +90,40 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }else {
                 like.setImageDrawable(context.getResources().getDrawable(R.drawable.heart_notactive));
             }
+
+        }
+
+
+
+        @OnClick(R.id.like)
+        public void likeProduct()
+        {
+            if(list.get(getPosition()).getLike()){
+                list.get(getPosition()).setLike(false);
+                like.setImageDrawable(context.getResources().getDrawable(R.drawable.heart_notactive));
+
+            }else {
+                list.get(getPosition()).setLike(true);
+                like.setImageDrawable(context.getResources().getDrawable(R.drawable.heart_active));
+            }
+
+            communicator.like(list.get(getPosition()).getId()+"");
         }
 
     }
 
+    public void setLike(int index ,Boolean status){
+        list.get(index).setLike(status);
+        notifyDataSetChanged();
+    }
 
     public RecyclerViewAdapter(Context context, List<Product> list) {
 
         this.context = context;
         this.list=list;
-        handelClicked = (HandelClicked)context;
+        communicator = (Communicator) context;
         lang = Utilities.getLang(context);
+        this.communicator = (Communicator)context;
 
     }
 
@@ -123,6 +144,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public int getItemCount() {
         return list.size();
     }
+
+
 
 
 }

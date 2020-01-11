@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Opening_objection_or_Filowing_order.Opening_Objection">
+
         </activity>
         <activity android:name=".OrderHotelDeals.OrderHotelDeal" />
         <activity android:name=".HotelDeals.Hotel_Deals" />
-        <activity android:name=".Product.Product" />
         <activity android:name=".Profile.Profile" />
         <activity android:name=".Authentication.Seller_Registration" />
         <activity android:name=".Authentication.Splash">
@@ -28,6 +28,11 @@
         <activity android:name=".Home.Home" />
         <activity android:name=".SubCategories.SubCategories" />
         <activity android:name=".Categories.Categories" />
+        <activity android:name=".Product.Product"/>
+        <activity android:name=".OrderCycle.OrderCycle"/>
+        <activity android:name=".Favorites.Favorites"/>
+        <activity android:name=".MyCard.MyCard"/>
+
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
