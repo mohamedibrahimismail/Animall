@@ -32,6 +32,19 @@
     <string name="time_host">ساعات الفندقة:</string>
     <string name="service">الخدمات المتاحة:</string>
     <string name="day_host">ايام الفندقة:</string>
-    <string name="vaccination">التطعيم</string>
+    <string name="vaccination">التطعيم:</string>
+    <string name="congrats">تهانينا طلبك تم</string>
+    <string name="successfully">بنجاح</string>
+    <string name="send_sms">ستصلك رسالة علي بريدك الالكتروني</string>
+    <string name="order_details">وجوالك بتفاصيل الطلبية</string>
+    <string name="objection">اعتراض او فتح نزاع</string>
+    <string name="follow_order">تتبع حالة الطلب</string>
+    <string name="unmatched_product">المنتج غير مطابق</string>
+    <string name="undelivered_product">لم تستلم الطلب</string>
+    <string name="others">اسباب اخري</string>
+    <string name="send">ارسال</string>
+    <string name="by">بواسطة:</string>
+    <string name="offer">العرض:</string>
+    <string name="site">الموقع:</string>
 
 </resources>

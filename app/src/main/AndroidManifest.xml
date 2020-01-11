@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OrderHotelDeals.OrderHotelDeal"></activity>
+        <activity android:name=".Opening_objection_or_Filowing_order.Opening_Objection">
+        </activity>
+        <activity android:name=".OrderHotelDeals.OrderHotelDeal" />
         <activity android:name=".HotelDeals.Hotel_Deals" />
         <activity android:name=".Product.Product" />
         <activity android:name=".Profile.Profile" />
@@ -27,9 +29,9 @@
         <activity android:name=".SubCategories.SubCategories" />
         <activity android:name=".Categories.Categories" />
     </application>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>
