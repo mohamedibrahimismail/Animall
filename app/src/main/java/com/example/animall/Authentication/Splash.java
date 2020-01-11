@@ -25,7 +25,7 @@ public class Splash extends AppCompatActivity {
             @Override
             public void run() {
                 if(usermodel != null){
-                    startActivity(new Intent(Splash.this, Hotel_Deals.class));
+                    startActivity(new Intent(Splash.this, Home.class));
                     finish();
                 }else {
                     startActivity(new Intent(Splash.this,LoginActivity.class));

@@ -27,6 +27,7 @@ import com.example.animall.Data.Remote.Models.Home.HomeModel;
 import com.example.animall.Data.Remote.Models.Home.Slider;
 import com.example.animall.Data.Remote.Models.User.LoginModel;
 import com.example.animall.Data.Remote.RetrofitClientInstance;
+import com.example.animall.HotelDeals.Hotel_Deals;
 import com.example.animall.R;
 import com.example.animall.SubCategories.SubCategories;
 import com.example.animall.Utilities.Utilities;
@@ -91,6 +92,14 @@ public class Home extends AppCompatActivity implements HomeRecyclerViewAdapter.H
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Home.this, Categories.class));
+            }
+        });
+
+        LinearLayout hotelDeals_lyt = (LinearLayout)headerLayout.findViewById(R.id.hoteldeals_lyt);
+        hotelDeals_lyt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Home.this, Hotel_Deals.class));
             }
         });
     }
