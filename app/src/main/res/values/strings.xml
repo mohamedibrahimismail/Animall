@@ -29,8 +29,21 @@
     <string name="animal_type">Animal Type:</string>
     <string name="animal_age">Animal age:</string>
     <string name="time_host">Hour host:</string>
-    <string name="service">Available services</string>
+    <string name="service">Available services:</string>
     <string name="day_host">Day Host:</string>
     <string name="vaccination">Vaccination</string>
+    <string name="congrats">Congrats your order is</string>
+    <string name="successfully">Successfully</string>
+    <string name="send_sms">you will arrive message in your email</string>
+    <string name="order_details">and phone about your order details</string>
+    <string name="objection">open objection</string>
+    <string name="follow_order">follow order</string>
+    <string name="unmatched_product">unmatched Product</string>
+    <string name="undelivered_product">undelivered Order</string>
+    <string name="others">Others</string>
+    <string name="send">send</string>
+    <string name="by">By:</string>
+    <string name="offer">Offer:</string>
+    <string name="site">Site:</string>
 
 </resources>

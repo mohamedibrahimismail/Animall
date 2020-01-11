@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -41,6 +42,8 @@ public class OrderHotelDeal extends AppCompatActivity {
     EditText client_email;
     @BindView(R.id.progressbar)
     ProgressBar progressBar;
+    @BindView(R.id.img_close)
+    ImageView close;
     Integer hotel_deal_id;
     MySharedPreference mprfs;
     LoginModel loginModel;
@@ -166,4 +169,7 @@ public class OrderHotelDeal extends AppCompatActivity {
         }
     }
 
+    public void close(View view) {
+        finish();
+    }
 }

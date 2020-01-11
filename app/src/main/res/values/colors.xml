@@ -12,4 +12,5 @@
     <color name="red">#ff0000</color>
     <color name="milky">#0097ff</color>
     <color name="homelisttext">#333333</color>
+    <color name="sms_msg">#94a60000</color>
 </resources>
